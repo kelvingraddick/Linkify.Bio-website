@@ -4,7 +4,7 @@
 	//include $_SERVER['DOCUMENT_ROOT'].'/utility/Mobile_Detect.php';
 	$c = connect_to_database();
 	//$detect = new Mobile_Detect; 
-phpinfo();
+    //phpinfo();
 ?>
 <!DOCTYPE html>
 <html lang="en">
