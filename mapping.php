@@ -2,8 +2,9 @@
     $path = ltrim($_SERVER['REQUEST_URI'], '/');
     $elements = explode('/', $path);
     if (empty($elements[0])) {
-        include('http://linkify.bio');
+        include($_SERVER['DOCUMENT_ROOT']);
     } else {
-        include('http://linkify.bio/user.php?username='.$elements[0]);
+        $_GET['username'] = $elements[0];
+        include($_SERVER['DOCUMENT_ROOT'].'/user.php');
     }
 ?>
