@@ -1,0 +1,2 @@
+RewriteEngine On    # Turn on the rewriting engine
+RewriteRule    ^100kelvins/?$    /user.php    [NC,L]    # Handle requests for "pet-care"

@@ -1,0 +1,82 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif; font-weight: 400;
+	background-color: #FBF09B;
+	color: #262626;
+}
+
+a {
+    color: #262626;
+    text-decoration : none;
+}
+
+a:hover {
+	color: black;
+    text-decoration: none;
+}
+
+button:hover {
+	background-color: #616d7b !important;
+	border: 1px solid #616d7b !important;
+}
+
+.light_text {
+	font-family: 'Open Sans', sans-serif; font-weight: 200;
+}
+
+.bold_text {
+	font-family: 'Open Sans', sans-serif; font-weight: 700;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #515151;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #515151;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #515151;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #515151;
+}
+
+
+
+@media (min-width: 768px) {
+	.container {
+		width: 950px;
+	}
+
+	.col-xs-hide {
+		display: none;
+	}
+	
+	.col-sm-hide {
+		display: none;
+	}
+	
+	.col-md-hide {
+		display: block;
+	}
+}
+
+
+
+@media (min-width: 992px) {
+	.col-xs-hide {
+		display: block;
+	}
+	
+	.col-sm-hide {
+		display: block;
+	}
+	
+	.col-md-hide {
+		display: none;
+	}	
+}
