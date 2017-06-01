@@ -2,9 +2,12 @@
 	include $_SERVER['DOCUMENT_ROOT'].'/components/configuration.php';
 	include $_SERVER['DOCUMENT_ROOT'].'/components/common.php';
 	//include $_SERVER['DOCUMENT_ROOT'].'/utility/Mobile_Detect.php';
-	$c = connect_to_database();
+	$database_connection = connect_to_database();
 	//$detect = new Mobile_Detect; 
     $username = $_GET['username'];
+    $result = mysqli_query($database_connection, "SELECT * FROM `users` WHERE username = '$username'");
+	if (!$result) { echo 'Could not find user by the username specified.'; }
+	$user = mysqli_fetch_assoc($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
