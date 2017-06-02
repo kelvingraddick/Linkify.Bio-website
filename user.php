@@ -52,34 +52,34 @@
                 </td>
             </tr>
 		</table>
-        <div class="link">
+        <div class="link" onclick="location.href='http://www.100kelvins.com/music';">
             <table>
                 <tr>
                     <td>
-                        <img class="link_favicon" src="https://www.google.com/s2/favicons?domain=www.youtube.com" />
+                        <img class="link_favicon" src="https://www.google.com/s2/favicons?domain=www.100kelvins.com/music/" />
                     </td>
                     <td>
                         <div class="link_divider"></div>
                     </td>
                     <td>
-                        <div class="link_name">YouTube</div>
-                        <div class="link_url">www.youtube.com</div>
+                        <div class="link_name">100kelvins Music</div>
+                        <div class="link_url">www.100kelvins.com/music/</div>
                     </td>
                 </tr>
             </table>
         </div>
-        <div class="link">
+        <div class="link" onclick="location.href='http://www.twitter.com/100kelvins';">
             <table>
                 <tr>
                     <td>
-                        <img class="link_favicon" src="https://www.google.com/s2/favicons?domain=www.twitter.com" />
+                        <img class="link_favicon" src="https://www.google.com/s2/favicons?domain=www.twitter.com/100kelvins" />
                     </td>
                     <td>
                         <div class="link_divider"></div>
                     </td>
                     <td>
-                        <div class="link_name">Twitter</div>
-                        <div class="link_url">www.twitter.com</div>
+                        <div class="link_name">Twitter (@100kelvins)</div>
+                        <div class="link_url">www.twitter.com/100kelvins</div>
                     </td>
                 </tr>
             </table>

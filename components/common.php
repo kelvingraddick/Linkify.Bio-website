@@ -1,5 +1,8 @@
 <?php
 
+    include $_SERVER['DOCUMENT_ROOT'].'/components/mobile_detect.php';
+    $mobile_detector = new Mobile_Detect;
+
     function connect_to_database() {
         $c = mysqli_connect($GLOBALS['database_host'], 
                             $GLOBALS['database_username'], 
