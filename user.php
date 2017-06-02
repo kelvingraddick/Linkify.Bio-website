@@ -1,9 +1,7 @@
 <?php
 	include $_SERVER['DOCUMENT_ROOT'].'/components/configuration.php';
 	include $_SERVER['DOCUMENT_ROOT'].'/components/common.php';
-	//include $_SERVER['DOCUMENT_ROOT'].'/utility/Mobile_Detect.php';
 	$database_connection = connect_to_database();
-	//$detect = new Mobile_Detect; 
     $username = $_GET['username'];
     $result = mysqli_query($database_connection, "SELECT * FROM `users` WHERE username = '$username'");
 	if (!$result) { echo 'Could not find user by the username specified.'; }
@@ -40,28 +38,54 @@
         include $_SERVER['DOCUMENT_ROOT'].'/header.php'; 
     ?>
 	<div class="container">
-        <div class="row">
-			<div class="col-xs-12 col-md-12 widget">
-                <?php echo $username; ?>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12 col-md-12 banner_ad">
-				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-				<!-- Default Ad -->
-				<ins class="adsbygoogle"
-				     style="display:block"
-				     data-ad-client="ca-pub-2031179174794311"
-				     data-ad-slot="3693145434"
-				     data-ad-format="auto"></ins>
-				<script>
-				(adsbygoogle = window.adsbygoogle || []).push({});
-				</script>
-			</div>
-		</div>
+        <table class="user">
+            <tr>
+                <td>
+                    <div class="profile_image" style="background-image:url('<?php echo $user['image_url']; ?>');"></div>
+                </td>
+                <td>
+                    <div class="vertical_divider"></div>
+                </td>
+                <td>
+                    <div class="fullname"><?php echo $user['full_name']; ?></div>
+                    <div class="username">@<?php echo $username; ?></div>
+                </td>
+            </tr>
+		</table>
+        <div class="link">
+            <table>
+                <tr>
+                    <td>
+                        <img class="link_favicon" src="https://www.google.com/s2/favicons?domain=www.youtube.com" />
+                    </td>
+                    <td>
+                        <div class="link_divider"></div>
+                    </td>
+                    <td>
+                        <div class="link_name">YouTube</div>
+                        <div class="link_url">www.youtube.com</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="link">
+            <table>
+                <tr>
+                    <td>
+                        <img class="link_favicon" src="https://www.google.com/s2/favicons?domain=www.twitter.com" />
+                    </td>
+                    <td>
+                        <div class="link_divider"></div>
+                    </td>
+                    <td>
+                        <div class="link_name">Twitter</div>
+                        <div class="link_url">www.twitter.com</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
 	</div>
 	<?php include $_SERVER['DOCUMENT_ROOT'].'/footer.php'; ?>
-	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55fc175bc50d68dc" async="async"></script>
 	<?php include $_SERVER['DOCUMENT_ROOT'].'/js/main.php'; ?>
 </body>
 </html>
