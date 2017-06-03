@@ -14,6 +14,8 @@
     $request_token['oauth_token_secret'] = $_SESSION['oauth_token_secret'];
 
     if (isset($_REQUEST['oauth_token']) && $request_token['oauth_token'] !== $_REQUEST['oauth_token']) {
+        echo "SESSION: ".$request_token['oauth_token']."<br />";
+        echo "TWITTER: ".$_REQUEST['oauth_token']."<br />";
         throw new \Exception('Invalid oauth token.');
     }
 
@@ -35,15 +37,17 @@
         $twitter_oauth_token_secret = $access_token['oauth_token_secret'];
 
         if (mysqli_num_rows(mysqli_query($database_connection, "SELECT username FROM users WHERE username = '$username'"))) {
-            if (mysqli_query($database_connection, "UPDATE users SET full_name = '$full_name', image_url = '$image_url', bio = '$bio', twitter_id = '$twitter_id', twitter_oauth_token = '$twitter_oauth_token', twitter_oauth_token_secret = '$twitter_oauth_token_secret' WHERE username = '$username'")) {
-                header('Location: http://linkify.bio/'.$username.'/');
+            if (mysqli_query($database_connection, "UPDATE users SET image_url = '$image_url', bio = '$bio', twitter_id = '$twitter_id', twitter_oauth_token = '$twitter_oauth_token', twitter_oauth_token_secret = '$twitter_oauth_token_secret' WHERE username = '$username'")) {
+                $_SESSION['username'] = $username;
+                header('Location: http://'.$_SERVER['SERVER_NAME'].'/admin/');
             } else {
-                header('Location: http://linkify.bio/register/error/');
+                header('Location: http://'.$_SERVER['SERVER_NAME'].'/register/error.php');
             }
         } else if (mysqli_query($database_connection, "INSERT INTO users(username, full_name, image_url, bio, twitter_id, twitter_oauth_token, twitter_oauth_token_secret) VALUES('$username', '$full_name', '$image_url', '$bio', '$twitter_id', '$twitter_oauth_token', '$twitter_oauth_token_secret')")) {
-            header('Location: http://linkify.bio/'.$username.'/');
+            $_SESSION['username'] = $username;
+            header('Location: http://'.$_SERVER['SERVER_NAME'].'/admin/');
         } else {
-            header('Location: http://linkify.bio/register/error/');
+            header('Location: http://'.$_SERVER['SERVER_NAME'].'/register/error.php');
         }
     }
 ?>

@@ -32,7 +32,6 @@
 	<meta name="twitter:description" content="<?php echo clean_quotes($site_name); ?>">
 	<meta name="twitter:image:src" content="<?php echo "https://".$_SERVER['HTTP_HOST'].$site_image; ?>">
 	<?php include $_SERVER['DOCUMENT_ROOT'].'/css/main.php'; ?>
-    <link rel="stylesheet" href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/css/iphone.css" type="text/css">
 </head>
 <body>
 	<?php 
@@ -49,16 +48,21 @@
                 <button class="instagram_button" onclick="location.href='https://api.instagram.com/oauth/authorize/?client_id=4a18edf1ceff4747b2c06e38d3395b34&redirect_uri=http://linkify.bio/register/instagram.php&response_type=code';">
                     <i class="fa fa-instagram" aria-hidden="true"></i> Sign in with Instagram
                 </button>
+                <!--
                 <button class="twitter_button" onclick="location.href='<?php echo $twitter_login_url; ?>';">
                     <i class="fa fa-twitter" aria-hidden="true"></i> Sign in with Twitter
                 </button>
+                -->
+                <?php
+                    //echo $_COOKIE['oauth_token'];
+                ?>
             </div>
         </div>
         <div class="col-xs-1 col-md-2"></div>
     </div>
 	<div class="container">
         <div class="row">
-			<div class="col-xs-12 col-md-12">
+			<div class="col-xs-12 col-md-12 preview">
                 <div class="marvel-device iphone6 silver">
                     <div class="top-bar"></div>
                     <div class="sleep"></div>

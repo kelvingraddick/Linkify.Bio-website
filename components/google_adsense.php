@@ -1,5 +1,5 @@
 <?php
-    if (!$is_demo) {
+    if (!$is_demo && !$is_admin) {
         if ($mobile_detector->isMobile()) {
             echo '
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

@@ -56,15 +56,17 @@
         $bio = $instagram_user -> bio;
 
         if (mysqli_num_rows(mysqli_query($database_connection, "SELECT username FROM users WHERE username = '$username'"))) {
-            if (mysqli_query($database_connection, "UPDATE users SET full_name = '$full_name', image_url = '$image_url', bio = '$bio', instagram_id = '$instagram_id', instagram_access_token = '$access_token' WHERE username = '$username'")) {
-                header('Location: http://linkify.bio/'.$username.'/');
+            if (mysqli_query($database_connection, "UPDATE users SET image_url = '$image_url', bio = '$bio', instagram_id = '$instagram_id', instagram_access_token = '$access_token' WHERE username = '$username'")) {
+                $_SESSION['username'] = $username;
+                header('Location: http://'.$_SERVER['SERVER_NAME'].'/admin/');
             } else {
-                header('Location: http://linkify.bio/register/error/');
+                header('Location: http://'.$_SERVER['SERVER_NAME'].'/register/error.php');
             }
         } else if (mysqli_query($database_connection, "INSERT INTO users(username, full_name, image_url, bio, instagram_id, instagram_access_token) VALUES('$username', '$full_name', '$image_url', '$bio', '$instagram_id', '$access_token')")) {
-            header('Location: http://linkify.bio/'.$username.'/');
+            $_SESSION['username'] = $username;
+            header('Location: http://'.$_SERVER['SERVER_NAME'].'/admin/');
         } else {
-            header('Location: http://linkify.bio/register/error/');
+            header('Location: http://'.$_SERVER['SERVER_NAME'].'/register/error.php');
         }
     }
 ?>

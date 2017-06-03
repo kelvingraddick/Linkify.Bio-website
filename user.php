@@ -4,8 +4,8 @@
 	$database_connection = connect_to_database();
     $username = $_GET['username'];
     $user_result = mysqli_query($database_connection, "SELECT * FROM `users` WHERE username = '$username'");
-	if (!$user_result) { echo 'Could not find user by the username specified.'; }
 	$user = mysqli_fetch_assoc($user_result);
+    if (!$user) { header('Location: http://linkify.bio/'); }
     $id = $user['id'];
     $username = $user['username'];
     $full_name = $user['full_name'];
@@ -17,22 +17,22 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title><?php echo $username.' - '.$site_name; ?></title>
-	<meta name="description" content="<?php echo clean_quotes($username.' - '.$site_name); ?>">
+	<title><?php echo $username; ?></title>
+	<meta name="description" content="<?php echo clean_quotes($username); ?>">
 	<meta name="robots" content="index, follow">
 	<meta property="fb:app_id" content="361862767338317" />
-	<meta property="og:description" content="<?php echo clean_quotes($username.' - '.$site_name); ?>" />
+	<meta property="og:description" content="<?php echo clean_quotes($username); ?>" />
 	<meta property="og:image" content="<?php echo "https://".$_SERVER['HTTP_HOST'].$site_image; ?>" />
 	<meta property="og:image:type" content="image/png" />
-	<meta property="og:title" content="<?php echo clean_quotes($username.' - '.$site_name); ?>" />
+	<meta property="og:title" content="<?php echo clean_quotes($username); ?>" />
 	<meta property="og:url" content="<?php echo "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" />
-	<meta property="og:site_name" content="<?php echo $username.' - '.$site_name; ?>" />
-    <meta property="article:author" content="<?php echo $username.' - '.$site_name; ?>" />
+	<meta property="og:site_name" content="<?php echo $username; ?>" />
+    <meta property="article:author" content="<?php echo $username; ?>" />
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@100kelvins">
 	<meta name="twitter:creator" content="@100kelvins">
-	<meta name="twitter:title" content="<?php echo clean_quotes($username.' - '.$site_name); ?>">
-	<meta name="twitter:description" content="<?php echo clean_quotes($username.' - '.$site_name); ?>">
+	<meta name="twitter:title" content="<?php echo clean_quotes($username); ?>">
+	<meta name="twitter:description" content="<?php echo clean_quotes($username); ?>">
 	<meta name="twitter:image:src" content="<?php echo "https://".$_SERVER['HTTP_HOST'].$site_image; ?>">
 	<?php include $_SERVER['DOCUMENT_ROOT'].'/css/main.php'; ?>
 </head>

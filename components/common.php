@@ -3,6 +3,7 @@
     session_start();
 
     $is_demo = isset($_GET['demo']);
+    $is_admin = strpos($_SERVER['REQUEST_URI'], 'admin');
 
     include $_SERVER['DOCUMENT_ROOT'].'/components/mobile_detect.php';
     $mobile_detector = new Mobile_Detect;
