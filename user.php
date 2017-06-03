@@ -3,9 +3,13 @@
 	include $_SERVER['DOCUMENT_ROOT'].'/components/common.php';
 	$database_connection = connect_to_database();
     $username = $_GET['username'];
-    $result = mysqli_query($database_connection, "SELECT * FROM `users` WHERE username = '$username'");
-	if (!$result) { echo 'Could not find user by the username specified.'; }
-	$user = mysqli_fetch_assoc($result);
+    $user_result = mysqli_query($database_connection, "SELECT * FROM `users` WHERE username = '$username'");
+	if (!$user_result) { echo 'Could not find user by the username specified.'; }
+	$user = mysqli_fetch_assoc($user_result);
+    $id = $user['id'];
+    $username = $user['username'];
+    $full_name = $user['full_name'];
+    $image_url = $user['image_url'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,49 +45,42 @@
         <table class="user">
             <tr>
                 <td>
-                    <div class="profile_image" style="background-image:url('<?php echo $user['image_url']; ?>');"></div>
+                    <div class="profile_image" style="background-image:url('<?php echo $image_url; ?>');"></div>
                 </td>
                 <td>
                     <div class="vertical_divider"></div>
                 </td>
                 <td>
-                    <div class="fullname"><?php echo $user['full_name']; ?></div>
+                    <div class="fullname"><?php echo $full_name; ?></div>
                     <div class="username">@<?php echo $username; ?></div>
                 </td>
             </tr>
 		</table>
-        <div class="link" onclick="location.href='http://www.100kelvins.com/music';">
-            <table>
-                <tr>
-                    <td>
-                        <img class="link_favicon" src="https://www.google.com/s2/favicons?domain=www.100kelvins.com/music/" />
-                    </td>
-                    <td>
-                        <div class="link_divider"></div>
-                    </td>
-                    <td>
-                        <div class="link_name">100kelvins Music</div>
-                        <div class="link_url">www.100kelvins.com/music/</div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="link" onclick="location.href='http://www.twitter.com/100kelvins';">
-            <table>
-                <tr>
-                    <td>
-                        <img class="link_favicon" src="https://www.google.com/s2/favicons?domain=www.twitter.com/100kelvins" />
-                    </td>
-                    <td>
-                        <div class="link_divider"></div>
-                    </td>
-                    <td>
-                        <div class="link_name">Twitter (@100kelvins)</div>
-                        <div class="link_url">www.twitter.com/100kelvins</div>
-                    </td>
-                </tr>
-            </table>
-        </div>
+        <?php
+            $link_results = mysqli_query($database_connection, "SELECT * FROM `links` WHERE user_id = $id AND is_enabled = 1") or die(mysql_error());
+            while($link = mysqli_fetch_array($link_results, MYSQL_ASSOC)) {
+                echo '
+                <div class="link" onclick="location.href=\''.$link['url'].'\';">
+                    <table>
+                        <tr>
+                            <td style="width: 20px;">
+                                <img class="link_favicon" src="https://www.google.com/s2/favicons?domain='.$link['url'].'" />
+                            </td>
+                            <td style="width: 20px;">
+                                <div class="link_divider"></div>
+                            </td>
+                            <td style="width: 100%;">
+                                <div class="link_name">'.$link['name'].'</div>
+                                <div class="link_url">'.$link['url'].'</div>
+                            </td>
+                            <td class="link_arrow">
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </td>
+                        </tr>
+                    </table>
+                </div>';
+            }
+        ?>
 	</div>
 	<?php include $_SERVER['DOCUMENT_ROOT'].'/footer.php'; ?>
 	<?php include $_SERVER['DOCUMENT_ROOT'].'/js/main.php'; ?>

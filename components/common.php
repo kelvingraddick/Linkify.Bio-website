@@ -1,5 +1,9 @@
 <?php
 
+    session_start();
+
+    $is_demo = isset($_GET['demo']);
+
     include $_SERVER['DOCUMENT_ROOT'].'/components/mobile_detect.php';
     $mobile_detector = new Mobile_Detect;
 
@@ -11,22 +15,6 @@
                             or die("Cannot connect to database."); 
         mysqli_set_charset($c, "utf8mb4");
         return $c;
-    }
-
-    function get_settings($c, $sql) {
-        $settings = mysqli_query($c, "SELECT * FROM settings");
-        if (!$settings) { echo 'Could not load settings data.'; exit; }
-        $setting = array(); 
-        while($row = mysqli_fetch_assoc($settings)) { 
-            $setting[$row['code']] = $row['value']; 
-        }
-        return $setting;
-    }
-
-    function get_seo($c, $page) {
-        $row = mysqli_fetch_assoc(mysqli_query($c, "SELECT * FROM seo WHERE page='$page'"));
-        if (!$row) { return; }
-        return $row;
     }
 
     function clean_quotes($string) {

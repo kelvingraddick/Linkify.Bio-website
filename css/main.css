@@ -11,12 +11,12 @@ body {
 }
 
 a {
-    color: #262626;
+    color: #727272;
     text-decoration : none;
 }
 
 a:hover {
-	color: black;
+	color: #C0392B;
     text-decoration: none;
 }
 
@@ -48,8 +48,10 @@ button:hover {
 
 
 .header {
+    position: relative;
     width: 100%;
     height: 80px;
+    z-index: 1000;
     margin: 0px;
 	color: #262626;
 	background-color: white;
@@ -94,13 +96,75 @@ button:hover {
 
 
 
+.jumbotron {
+    background-image: url('../images/linkify.bio-pattern.png');
+    background-size: 100px 100px;
+}
+
+.jumbotron_overlay {
+    height: 100%;
+    padding: 30px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.90);
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 0.15);
+    -moz-box-shadow:    0px 0px 30px 0px rgba(50, 50, 50, 0.15);
+    box-shadow:         0px 0px 30px 0px rgba(50, 50, 50, 0.15);
+}
+
+.jumbotron_overlay_title {
+    font-size: 20px;
+    letter-spacing: 0.1em;
+}
+
+.jumbotron_overlay_buttons {
+    font-size: 20px;
+    letter-spacing: 0.1em;
+}
+
+.jumbotron_overlay_buttons button {
+    margin-top: 30px;
+}
+
+
+.instagram_button {
+    padding: 10px 20px 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    color: white;
+    white-space: nowrap;
+    background-image: -ms-linear-gradient(bottom left, #C0392B 0%, #8e44ad 100%);
+    background-image: -moz-linear-gradient(bottom left, #C0392B 0%, #8e44ad 100%);
+    background-image: -o-linear-gradient(bottom left, #C0392B 0%, #8e44ad 100%);
+    background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #C0392B), color-stop(100, #8e44ad));
+    background-image: -webkit-linear-gradient(bottom left, #C0392B 0%, #8e44ad 100%);
+    background-image: linear-gradient(to top right, #C0392B 0%, #8e44ad 100%);
+}
+
+.twitter_button {
+    padding: 10px 20px 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    color: white;
+    white-space: nowrap;
+    background-color: #5641db;
+    background-image: -webkit-linear-gradient(-60deg, #5641db 0%, #1f86ef 100%);
+    background-image: -moz-linear-gradient(-60deg, #5641db 0%, #1f86ef 100%);
+    background-image: -o-linear-gradient(-60deg, #5641db 0%, #1f86ef 100%);
+    background-image: linear-gradient(-60deg, #5641db 0%, #1f86ef 100%);
+}
+
+
+
 .user {
     margin: 25px 0px 25px 0px;
 }
 
 .profile_image {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     vertical-align: middle;
     border-radius: 50px;
     background-repeat: no-repeat;
@@ -109,9 +173,9 @@ button:hover {
 }
 
 .vertical_divider {
-    height: 140px;
+    height: 110px;
     border-left: #dfdfdf 1px solid;
-    margin: 0px 25px 0px 25px;
+    margin: 0px 15px 0px 15px;
     opacity: 0.75;
 }
 
@@ -140,6 +204,16 @@ button:hover {
     box-shadow:         0px 0px 30px 0px rgba(50, 50, 50, 0.15);
 }
 
+.link table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.link td {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 .link_favicon {
     height: 20px;
     vertical-align: middle;
@@ -147,7 +221,7 @@ button:hover {
 
 .link_divider {
     height: 50px;
-    margin: 0px 25px 0px 25px;
+    margin: 0px 10px 0px 10px;
     border-left: #dfdfdf 1px solid;
     opacity: 0.75;
 }
@@ -155,28 +229,45 @@ button:hover {
 .link_name {
     font-size: 19px;
     letter-spacing: 0.1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .link_url {
     font-size: 15px;
     opacity: 0.30;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.link_arrow {
+    width: 20px;
+    font-size: 20px;
+    opacity: 0.30;
+    text-align: right;
 }
 
 
 
 .footer {
-    position: fixed;
-    bottom: 0px;
-    height: 100px;
+    font-size: 12px;
+    text-align: center;
 }
 
 .banner_ad {
     position: fixed;
+    z-index: 1000;
     bottom: 0px;
     left: 0px;
     right: 0px;
     margin: 0px;
     text-align: center;
+}
+
+.banner_ad_background {
+    height: 120px;
 }
 
 
@@ -185,6 +276,14 @@ button:hover {
 	.container {
 		width: 950px;
 	}
+
+    .jumbotron_overlay {
+        padding: 50px;
+    }
+
+    .jumbotron_overlay_title {
+        font-size: 28px;
+    }
 
 	.col-xs-hide {
 		display: none;
@@ -202,6 +301,22 @@ button:hover {
 
 
 @media (min-width: 992px) {
+    .jumbotron_overlay {
+        padding: 50px;
+    }
+
+    .jumbotron_overlay_title {
+        font-size: 35px;
+    }
+
+    .instagram_button {
+        font-size: 20px;
+    }
+
+    .twitter_button {
+        font-size: 20px;
+    }
+
 	.col-xs-hide {
 		display: block;
 	}

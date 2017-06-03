@@ -1,10 +1,12 @@
 <?php
+    //ini_set('display_errors', 1);
+    //ini_set('display_startup_errors', 1);
+    //error_reporting(E_ALL);
 	include $_SERVER['DOCUMENT_ROOT'].'/components/configuration.php';
 	include $_SERVER['DOCUMENT_ROOT'].'/components/common.php';
-	//include $_SERVER['DOCUMENT_ROOT'].'/utility/Mobile_Detect.php';
-	$c = connect_to_database();
-	//$detect = new Mobile_Detect; 
-    //phpinfo();
+	include $_SERVER['DOCUMENT_ROOT'].'/components/twitteroauth/load.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/components/twitteroauth/url.php';
+	$database_connection = connect_to_database();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,30 +32,46 @@
 	<meta name="twitter:description" content="<?php echo clean_quotes($site_name); ?>">
 	<meta name="twitter:image:src" content="<?php echo "https://".$_SERVER['HTTP_HOST'].$site_image; ?>">
 	<?php include $_SERVER['DOCUMENT_ROOT'].'/css/main.php'; ?>
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/css/iphone.css" type="text/css">
 </head>
 <body>
 	<?php 
         include $_SERVER['DOCUMENT_ROOT'].'/utility/google_analytics.php';
         include $_SERVER['DOCUMENT_ROOT'].'/header.php'; 
     ?>
+    <div class="row jumbotron">
+        <div class="col-xs-1 col-md-2"></div>
+        <div class="col-xs-10 col-md-8 jumbotron_overlay">
+            <div class="jumbotron_overlay_title">
+                Quickly provide multiple links in a social bio or ad through a single link!
+            </div>
+            <div class="jumbotron_overlay_buttons">
+                <button class="instagram_button" onclick="location.href='https://api.instagram.com/oauth/authorize/?client_id=4a18edf1ceff4747b2c06e38d3395b34&redirect_uri=http://linkify.bio/register/instagram.php&response_type=code';">
+                    <i class="fa fa-instagram" aria-hidden="true"></i> Sign in with Instagram
+                </button>
+                <button class="twitter_button" onclick="location.href='<?php echo $twitter_login_url; ?>';">
+                    <i class="fa fa-twitter" aria-hidden="true"></i> Sign in with Twitter
+                </button>
+            </div>
+        </div>
+        <div class="col-xs-1 col-md-2"></div>
+    </div>
 	<div class="container">
         <div class="row">
-			<div class="col-xs-12 col-md-12 widget">
-                <a href="https://api.instagram.com/oauth/authorize/?client_id=4a18edf1ceff4747b2c06e38d3395b34&redirect_uri=http://linkify.bio/register/&response_type=code">Authorize with IG</a>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12 col-md-12 banner_ad">
-				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-				<!-- Default Ad -->
-				<ins class="adsbygoogle"
-				     style="display:block"
-				     data-ad-client="ca-pub-2031179174794311"
-				     data-ad-slot="3693145434"
-				     data-ad-format="auto"></ins>
-				<script>
-				(adsbygoogle = window.adsbygoogle || []).push({});
-				</script>
+			<div class="col-xs-12 col-md-12">
+                <div class="marvel-device iphone6 silver">
+                    <div class="top-bar"></div>
+                    <div class="sleep"></div>
+                    <div class="volume"></div>
+                    <div class="camera"></div>
+                    <div class="sensor"></div>
+                    <div class="speaker"></div>
+                    <div class="screen">
+                        <iframe style="height: 100%; width: 100%; border: none;" src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/100kelvins/demo/"></iframe>
+                    </div>
+                    <div class="home"></div>
+                    <div class="bottom-bar"></div>
+                </div>
 			</div>
 		</div>
 	</div>
