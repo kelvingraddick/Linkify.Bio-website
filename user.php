@@ -5,7 +5,7 @@
     $username = $_GET['username'];
     $user_result = mysqli_query($database_connection, "SELECT * FROM `users` WHERE username = '$username'");
 	$user = mysqli_fetch_assoc($user_result);
-    if (!$user) { header('Location: http://linkify.bio/'); }
+    if (!$user) { header('Location: https://linkify.bio/'); }
     $id = $user['id'];
     $username = $user['username'];
     $full_name = $user['full_name'];
@@ -60,7 +60,7 @@
             $link_results = mysqli_query($database_connection, "SELECT * FROM `links` WHERE user_id = $id AND is_enabled = 1") or die(mysql_error());
             while($link = mysqli_fetch_array($link_results, MYSQL_ASSOC)) {
                 echo '
-                <div class="link" onclick="location.href=\''.$link['url'].'\';">
+                <div class="link" onclick="location.href=\''.add_http($link['url']).'\';">
                     <table>
                         <tr>
                             <td style="width: 20px;">

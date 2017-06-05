@@ -16,7 +16,7 @@
         $error = $_GET['error'];
         $error_reason = $_GET['error_reason'];
         $error_description = $_GET['error_description'];
-        header('Location: http://linkify.bio/register/error/');
+        header('Location: https://linkify.bio/register/error/');
     }
 
     function request_access_token($code) {
@@ -25,7 +25,7 @@
             'grant_type' => 'authorization_code',
             'client_id' => '4a18edf1ceff4747b2c06e38d3395b34',
             'client_secret' => 'cb012618f3cd46abb5b12fcf702e2bcb',
-            'redirect_uri' => 'http://linkify.bio/register/instagram.php',
+            'redirect_uri' => 'https://linkify.bio/register/instagram.php',
             'code' => $code
         );
         $options = array(
@@ -58,15 +58,15 @@
         if (mysqli_num_rows(mysqli_query($database_connection, "SELECT username FROM users WHERE username = '$username'"))) {
             if (mysqli_query($database_connection, "UPDATE users SET image_url = '$image_url', bio = '$bio', instagram_id = '$instagram_id', instagram_access_token = '$access_token' WHERE username = '$username'")) {
                 $_SESSION['username'] = $username;
-                header('Location: http://'.$_SERVER['SERVER_NAME'].'/admin/');
+                header('Location: https://'.$_SERVER['SERVER_NAME'].'/admin/');
             } else {
-                header('Location: http://'.$_SERVER['SERVER_NAME'].'/register/error.php');
+                header('Location: https://'.$_SERVER['SERVER_NAME'].'/register/error.php');
             }
         } else if (mysqli_query($database_connection, "INSERT INTO users(username, full_name, image_url, bio, instagram_id, instagram_access_token) VALUES('$username', '$full_name', '$image_url', '$bio', '$instagram_id', '$access_token')")) {
             $_SESSION['username'] = $username;
-            header('Location: http://'.$_SERVER['SERVER_NAME'].'/admin/');
+            header('Location: https://'.$_SERVER['SERVER_NAME'].'/admin/');
         } else {
-            header('Location: http://'.$_SERVER['SERVER_NAME'].'/register/error.php');
+            header('Location: https://'.$_SERVER['SERVER_NAME'].'/register/error.php');
         }
     }
 ?>

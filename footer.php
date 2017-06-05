@@ -1,7 +1,7 @@
 <div class="container footer">
     <div class="row">
         <div class="col-xs-3 col-md-3">
-            <a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/">Sign Up</a>
+            <a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/">Sign Up</a>
         </div>
         <div class="col-xs-3 col-md-3">
             <a href="https://termsfeed.com/terms-service/b400f8d25bcad346321e4e498d6ebf40">Terms</a>
@@ -10,7 +10,7 @@
             <a href="mailto:kelvingraddick@gmail.com">Contact</a>
         </div>
         <div class="col-xs-3 col-md-3">
-            <a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/">©2017</a>
+            <a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/">©2017</a>
         </div>
     </div>
 </div>

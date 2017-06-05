@@ -22,6 +22,13 @@
         return str_replace('"', '&quot;', $string);
     }
 
+    function add_http($url) {
+        if (!preg_match("~^(?:f|ht)tps?://~i", $url)) {
+            $url = "http://" . $url;
+        }
+        return $url;
+    }
+
     function mysqli_result($mysqli, $sql) {
         $result = $mysqli->query($sql);
         $value = $result->fetch_array(MYSQLI_NUM);

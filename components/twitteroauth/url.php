@@ -5,7 +5,7 @@
 
     $request_token = $connection -> oauth(
         'oauth/request_token', [
-            'oauth_callback' => 'http://linkify.bio/register/twitter.php'
+            'oauth_callback' => 'https://linkify.bio/register/twitter.php'
         ]
     );
 

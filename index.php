@@ -45,17 +45,12 @@
                 Quickly provide multiple links in a social bio or ad through a single link!
             </div>
             <div class="jumbotron_overlay_buttons">
-                <button class="instagram_button" onclick="location.href='https://api.instagram.com/oauth/authorize/?client_id=4a18edf1ceff4747b2c06e38d3395b34&redirect_uri=http://linkify.bio/register/instagram.php&response_type=code';">
+                <button class="instagram_button" onclick="location.href='https://api.instagram.com/oauth/authorize/?client_id=4a18edf1ceff4747b2c06e38d3395b34&redirect_uri=https://linkify.bio/register/instagram.php&response_type=code';">
                     <i class="fa fa-instagram" aria-hidden="true"></i> Sign in with Instagram
                 </button>
-                <!--
                 <button class="twitter_button" onclick="location.href='<?php echo $twitter_login_url; ?>';">
                     <i class="fa fa-twitter" aria-hidden="true"></i> Sign in with Twitter
                 </button>
-                -->
-                <?php
-                    //echo $_COOKIE['oauth_token'];
-                ?>
             </div>
         </div>
         <div class="col-xs-1 col-md-2"></div>
@@ -71,7 +66,7 @@
                     <div class="sensor"></div>
                     <div class="speaker"></div>
                     <div class="screen">
-                        <iframe style="height: 100%; width: 100%; border: none;" src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/100kelvins/demo/"></iframe>
+                        <iframe style="height: 100%; width: 100%; border: none;" src="https://<?php echo $_SERVER['SERVER_NAME']; ?>/100kelvins/demo/"></iframe>
                     </div>
                     <div class="home"></div>
                     <div class="bottom-bar"></div>

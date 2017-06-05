@@ -5,7 +5,7 @@
     $username = $_SESSION['username'];
     $user_result = mysqli_query($database_connection, "SELECT * FROM `users` WHERE username = '$username'");
 	$user = mysqli_fetch_assoc($user_result);
-    if (!$user) { header('Location: http://'.$_SERVER['SERVER_NAME']); }
+    if (!$user) { header('Location: https://'.$_SERVER['SERVER_NAME']); }
     $id = $user['id'];
     $username = $user['username'];
     $full_name = $user['full_name'];
@@ -31,21 +31,21 @@
 	<div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-8">
+                <div class="title" style="margin-top: 30px;"><i class="fa fa-link" aria-hidden="true"></i> Your Single URL</div>
+                <input class="user_input" style="width: 280px;" type="text" value="linkify.bio/<?php echo $username; ?>/" onclick="<?php echo ($mobile_detector -> isiOS() ? "this.setSelectionRange(0, 9999);" : "this.focus(); this.select();"); ?>" readonly>
                 <table class="user">
                     <tr>
                         <td>
                             <div class="profile_image" style="background-image:url('<?php echo $image_url; ?>');"></div>
                         </td>
+                        <td><div class="vertical_divider"></div></td>
                         <td>
-                            <div class="vertical_divider"></div>
-                        </td>
-                        <td>
-                            <form method="post" action="http://<?php echo $_SERVER['SERVER_NAME']; ?>/admin/user/update.php">
+                            <form method="post" action="https://<?php echo $_SERVER['SERVER_NAME']; ?>/admin/user/update.php">
                                 <div class="username">@<?php echo $username; ?></div>
                                 <input class="user_input" type="text" name="full_name" value="<?php echo $full_name; ?>" /><br />
                                 <button class="save_button">Save</button>
                             </form>
-                            <button class="logout_button" onclick="location.href='http://<?php echo $_SERVER['SERVER_NAME']; ?>/admin/logout.php';">Logout</button>
+                            <button class="logout_button" onclick="location.href='https://<?php echo $_SERVER['SERVER_NAME']; ?>/admin/logout.php';">Logout</button>
                         </td>
                     </tr>
                 </table>
@@ -57,12 +57,12 @@
                             <table>
                                 <tr>
                                     <td style="width: 100%;">
-                                        <form id="link_update_form_'.$link['id'].'" method="post" action="http://'.$_SERVER['SERVER_NAME'].'/admin/link/update.php">
+                                        <form id="link_update_form_'.$link['id'].'" method="post" action="https://'.$_SERVER['SERVER_NAME'].'/admin/link/update.php">
                                             <input type="hidden" name="id" value="'.$link['id'].'" />
                                             <input class="link_input" type="text" name="name" placeholder="Display name" value="'.$link['name'].'" /><br />
                                             <input class="link_input" type="text" name="url" placeholder="URL" value="'.$link['url'].'" />
                                         </form>
-                                        <form id="link_delete_form_'.$link['id'].'" method="post" action="http://'.$_SERVER['SERVER_NAME'].'/admin/link/delete.php">
+                                        <form id="link_delete_form_'.$link['id'].'" method="post" action="https://'.$_SERVER['SERVER_NAME'].'/admin/link/delete.php">
                                             <input type="hidden" name="id" value="'.$link['id'].'" />
                                         </form>
                                     </td>
@@ -82,7 +82,7 @@
                     <table>
                         <tr>
                             <td style="width: 100%;">
-                                <form id="link_insert_form" method="post" action="http://<?php echo $_SERVER['SERVER_NAME']; ?>/admin/link/insert.php">
+                                <form id="link_insert_form" method="post" action="https://<?php echo $_SERVER['SERVER_NAME']; ?>/admin/link/insert.php">
                                     <input class="link_input" type="text" name="name" placeholder="Display name" /><br />
                                     <input class="link_input" type="text" name="url" placeholder="URL" />
                                 </form>
@@ -95,7 +95,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-md-4 preview">
-                <i class="fa fa-mobile" aria-hidden="true"></i> Preview<br /><br />
+                <div class="title"><i class="fa fa-mobile" aria-hidden="true"></i> Preview</div>
                 <div class="marvel-device iphone6 silver">
                     <div class="top-bar"></div>
                     <div class="sleep"></div>
@@ -104,7 +104,7 @@
                     <div class="sensor"></div>
                     <div class="speaker"></div>
                     <div class="screen">
-                        <iframe style="height: 100%; width: 100%; border: none;" src="http://<?php echo $_SERVER['SERVER_NAME'].'/'.$username; ?>/demo/"></iframe>
+                        <iframe style="height: 100%; width: 100%; border: none;" src="https://<?php echo $_SERVER['SERVER_NAME'].'/'.$username; ?>/demo/"></iframe>
                     </div>
                     <div class="home"></div>
                     <div class="bottom-bar"></div>
