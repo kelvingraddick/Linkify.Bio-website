@@ -6,6 +6,10 @@
     </div>
     <div class="col-xs-4 col-md-4 header_space"></div>
     <div class="col-xs-4 col-md-4">
-        <button class="header_button" onclick="location.href='https://<?php echo $_SERVER['SERVER_NAME']; ?>/';">Get Your Page</button>
+        <?php
+            if (strpos($_SERVER['REQUEST_URI'], "admin") == false){
+                echo '<button class="header_button" onclick="location.href=\'https://'.$_SERVER['SERVER_NAME'].'/\';">Get Your Page</button>';
+            }
+        ?>
     </div>
 </div>

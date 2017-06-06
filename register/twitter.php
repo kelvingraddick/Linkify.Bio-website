@@ -26,9 +26,9 @@
 
         $twitter_id = $twitter_user -> id;
         $username = $twitter_user -> screen_name;
-        $full_name = $twitter_user -> name;
+        $full_name = addslashes($twitter_user -> name);
         $image_url = str_replace("_normal", "", $twitter_user -> profile_image_url_https);
-        $bio = $twitter_user -> description;
+        $bio = addslashes($twitter_user -> description);
         $twitter_oauth_token = $access_token['oauth_token'];
         $twitter_oauth_token_secret = $access_token['oauth_token_secret'];
 
@@ -37,13 +37,13 @@
                 $_SESSION['username'] = $username;
                 header('Location: https://'.$_SERVER['SERVER_NAME'].'/admin/');
             } else {
-                header('Location: https://'.$_SERVER['SERVER_NAME'].'/register/error.php');
+                header('Location: https://'.$_SERVER['SERVER_NAME'].'/register/error.php?message='.mysqli_error($database_connection));
             }
         } else if (mysqli_query($database_connection, "INSERT INTO users(username, full_name, image_url, bio, twitter_id, twitter_oauth_token, twitter_oauth_token_secret) VALUES('$username', '$full_name', '$image_url', '$bio', '$twitter_id', '$twitter_oauth_token', '$twitter_oauth_token_secret')")) {
             $_SESSION['username'] = $username;
             header('Location: https://'.$_SERVER['SERVER_NAME'].'/admin/');
         } else {
-            header('Location: https://'.$_SERVER['SERVER_NAME'].'/register/error.php');
+            header('Location: https://'.$_SERVER['SERVER_NAME'].'/register/error.php?message='.mysqli_error($database_connection));
         }
     }
 ?>

@@ -31,7 +31,7 @@
 	<div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-8">
-                <div class="title" style="margin-top: 30px;"><i class="fa fa-link" aria-hidden="true"></i> Your Single URL</div>
+                <div class="title" style="margin-top: 30px;"><i class="fa fa-link" aria-hidden="true"></i> Your URL (copy and use in bio / page / etc.)</div>
                 <input class="user_input" style="width: 280px;" type="text" value="linkify.bio/<?php echo $username; ?>/" onclick="<?php echo ($mobile_detector -> isiOS() ? "this.setSelectionRange(0, 9999);" : "this.focus(); this.select();"); ?>" readonly>
                 <table class="user">
                     <tr>

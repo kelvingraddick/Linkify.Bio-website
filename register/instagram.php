@@ -51,22 +51,22 @@
 
         $instagram_id = $instagram_user -> id;
         $username = $instagram_user -> username;
-        $full_name = $instagram_user -> full_name;
+        $full_name = addslashes($instagram_user -> full_name);
         $image_url = $instagram_user -> profile_picture;
-        $bio = $instagram_user -> bio;
+        $bio = addslashes($instagram_user -> bio);
 
         if (mysqli_num_rows(mysqli_query($database_connection, "SELECT username FROM users WHERE username = '$username'"))) {
             if (mysqli_query($database_connection, "UPDATE users SET image_url = '$image_url', bio = '$bio', instagram_id = '$instagram_id', instagram_access_token = '$access_token' WHERE username = '$username'")) {
                 $_SESSION['username'] = $username;
                 header('Location: https://'.$_SERVER['SERVER_NAME'].'/admin/');
             } else {
-                header('Location: https://'.$_SERVER['SERVER_NAME'].'/register/error.php');
+                header('Location: https://'.$_SERVER['SERVER_NAME'].'/register/error.php?message='.mysqli_error($database_connection));
             }
         } else if (mysqli_query($database_connection, "INSERT INTO users(username, full_name, image_url, bio, instagram_id, instagram_access_token) VALUES('$username', '$full_name', '$image_url', '$bio', '$instagram_id', '$access_token')")) {
             $_SESSION['username'] = $username;
             header('Location: https://'.$_SERVER['SERVER_NAME'].'/admin/');
         } else {
-            header('Location: https://'.$_SERVER['SERVER_NAME'].'/register/error.php');
+            header('Location: https://'.$_SERVER['SERVER_NAME'].'/register/error.php?message='.mysqli_error($database_connection));
         }
     }
 ?>
