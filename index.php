@@ -7,6 +7,7 @@
 	include $_SERVER['DOCUMENT_ROOT'].'/components/twitteroauth/load.php';
     include $_SERVER['DOCUMENT_ROOT'].'/components/twitteroauth/url.php';
 	$database_connection = connect_to_database();
+    $description = 'Quickly provide multiple links in a social bio or ad through a single link!';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,10 +16,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><?php echo $site_name; ?></title>
-	<meta name="description" content="<?php echo clean_quotes($site_name); ?>">
+	<meta name="description" content="<?php echo clean_quotes($description); ?>">
 	<meta name="robots" content="index, follow">
 	<meta property="fb:app_id" content="361862767338317" />
-	<meta property="og:description" content="<?php echo clean_quotes($site_name); ?>" />
+	<meta property="og:description" content="<?php echo clean_quotes($description); ?>" />
 	<meta property="og:image" content="<?php echo "https://".$_SERVER['HTTP_HOST'].$site_image; ?>" />
 	<meta property="og:image:type" content="image/png" />
 	<meta property="og:title" content="<?php echo clean_quotes($site_name); ?>" />
@@ -29,7 +30,7 @@
 	<meta name="twitter:site" content="@100kelvins">
 	<meta name="twitter:creator" content="@100kelvins">
 	<meta name="twitter:title" content="<?php echo clean_quotes($site_name); ?>">
-	<meta name="twitter:description" content="<?php echo clean_quotes($site_name); ?>">
+	<meta name="twitter:description" content="<?php echo clean_quotes($description); ?>">
 	<meta name="twitter:image:src" content="<?php echo "https://".$_SERVER['HTTP_HOST'].$site_image; ?>">
 	<?php include $_SERVER['DOCUMENT_ROOT'].'/css/main.php'; ?>
 </head>
