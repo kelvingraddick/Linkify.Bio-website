@@ -25,7 +25,7 @@
 </head>
 <body>
 	<?php
-        include $_SERVER['DOCUMENT_ROOT'].'/utility/google_analytics.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/components/google_analytics.php';
         include $_SERVER['DOCUMENT_ROOT'].'/header.php';
     ?>
 	<div class="container">
