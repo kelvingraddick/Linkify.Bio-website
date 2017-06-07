@@ -1,6 +1,6 @@
 <?php
 	$site_name = "Linkify.Bio";
-	$site_image = "/images/logo-social-yellow-big.png";
+	$site_image = "/images/linkify.bio-ad-1.png";
 	
 	$database_host = "localhost";
 	$database_username = "application";
