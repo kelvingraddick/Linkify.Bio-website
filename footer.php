@@ -10,6 +10,7 @@
             <a href="mailto:kelvingraddick@gmail.com">Contact</a>
         </div>
         <div class="col-xs-3 col-md-3">
+            <a href="https://www.kgthemaker.com/" alt="KG The Maker" target="_blank">KG The Maker</a>&nbsp;
             <a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/">©2017</a>
         </div>
     </div>
