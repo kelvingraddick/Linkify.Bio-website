@@ -4,7 +4,7 @@
 	
 	$database_host = "localhost";
 	$database_username = "application";
-	$database_password = "wavelink2014";
+	$database_password = "password";
 	$database_name = "linkify.bio";
 
     $twitter_consumer_key = "amDRgABDqeY77zcUpMQBZIACb";
