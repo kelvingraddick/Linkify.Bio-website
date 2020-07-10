@@ -27,8 +27,8 @@
 	<meta property="og:site_name" content="<?php echo $site_name; ?>" />
     <meta property="article:author" content="<?php echo $site_name; ?>" />
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:site" content="@100kelvins">
-	<meta name="twitter:creator" content="@100kelvins">
+	<meta name="twitter:site" content="@KGcodes">
+	<meta name="twitter:creator" content="@KGcodes">
 	<meta name="twitter:title" content="<?php echo clean_quotes($site_name); ?>">
 	<meta name="twitter:description" content="<?php echo clean_quotes($description); ?>">
 	<meta name="twitter:image:src" content="<?php echo "https://".$_SERVER['HTTP_HOST'].$site_image; ?>">
@@ -37,6 +37,7 @@
 <body>
 	<?php 
         include $_SERVER['DOCUMENT_ROOT'].'/components/google_analytics.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/banner.php'; 
         include $_SERVER['DOCUMENT_ROOT'].'/header.php'; 
     ?>
     <div class="row jumbotron">

@@ -58,6 +58,27 @@ button:hover {
 }
 
 
+.banner {
+    padding: 10px 20px 10px 20px;
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    background-image: -ms-linear-gradient(bottom left, #C0392B 0%, #8e44ad 100%);
+    background-image: -moz-linear-gradient(bottom left, #C0392B 0%, #8e44ad 100%);
+    background-image: -o-linear-gradient(bottom left, #C0392B 0%, #8e44ad 100%);
+    background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #C0392B), color-stop(100, #8e44ad));
+    background-image: -webkit-linear-gradient(bottom left, #C0392B 0%, #8e44ad 100%);
+    background-image: linear-gradient(to top right, #C0392B 0%, #8e44ad 100%);
+}
+
+.banner_link {
+    color: white;
+    text-decoration: underline;
+}
+
+.banner_link:hover {
+    color: rgb(238, 214, 122);
+}
 
 .header {
     position: relative;
